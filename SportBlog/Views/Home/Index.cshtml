@@ -1,0 +1,51 @@
+﻿@model IEnumerable<SportBlog.ViewModel.PostTagsViewModel>
+
+@{
+    ViewData["Title"] = "Home Page";
+}
+<form asp-controller="Home" asp-action="Index" method="post">
+    <div class="row">
+        <div class="col-lg-5">
+            <label for="titleSearchString">Title</label>
+            <input type="text" id="titleSearchString" name="titleSearchString" class="form-control" placeholder="Search title" />
+        </div>
+        <div class="col-lg-5">
+            <label for="tagSearchString">Category</label>
+            <input type="text" id="tagSearchString" name="tagSearchString" class="form-control" placeholder="Search category" />
+        </div>
+        <div class="col-lg-2">
+            <input type="submit" class="btn blog-btn" value="Filter" />
+        </div>
+      </div>
+</form>
+<div class="row">
+    <div class="col-lg-12 col-md-12 mx-auto">
+        <div class="post-preview">
+
+            @foreach (var item in Model.OrderByDescending(i=>i.post.CreationDate))
+            {
+                <a asp-controller="PostsPerUser" asp-action="Detail" asp-route-postId="@item.post.PostId">
+                    <h2 class="post-title">
+                        @item.post.Title
+                    </h2>
+                </a>
+                <p class="img-rounded">
+                    <img src="~/uploads/img/posts/@item.post.PostImage" style="width:17%;" />
+                </p>
+                <p>Categories: 
+                    <ul title="Tags:">
+                        @foreach (var TagItem in item.tags)
+                        {
+                            <li><b>@TagItem.Description </b> </li>
+                        }
+                    </ul>
+                </p>
+
+                <p class="post-meta">
+                    Created By: <b> @item.post.CreatedBy</b> On <b>@string.Format("{0:dd/MM/yyyy}", item.post.CreationDate)</b>
+                </p>
+                <hr>
+            }
+        </div>
+    </div>
+</div>

@@ -1,0 +1,108 @@
+﻿body {
+    padding-top: 50px;
+    padding-bottom: 20px;
+    background-image: url("../images/sfond4.jpg");
+}
+hr {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    border: 0;
+    border-top: 1px solid #984444;
+}
+h2 {
+    color: saddlebrown;
+    font-style: oblique;
+}
+/* Wrapping element */
+/* Set some basic padding to keep content from hitting the edges */
+.body-content {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+/* Carousel */
+.carousel-caption p {
+    font-size: 20px;
+    line-height: 1.4;
+}
+
+/* Make .svg files in the carousel display properly in older browsers */
+.carousel-inner .item img[src$=".svg"] {
+    width: 100%;
+}
+
+.navbar-inverse {
+    background: rgb(224,167,74);
+    background: linear-gradient(100deg, rgba(224,167,74,1) 0%, rgba(224,167,74,0.7455357142857143) 3%);
+    border: 1px solid rgb(224,167,74);
+}
+
+    .navbar-inverse .navbar-nav > li > a {
+        color: floralwhite;
+    }
+
+    .navbar-inverse .navbar-brand {
+        color: saddlebrown;
+    }
+.btn-create {
+    float: right;
+    margin-right: 10px;
+    color: #984444;
+}
+.btn-back {
+    margin-left: 10px;
+    background-color: saddlebrown;
+    color: floralwhite;
+    border-color: saddlebrown;
+}
+.btn-login {
+    background-color: saddlebrown;
+    color: floralwhite;
+    border-color: saddlebrown;
+}
+.table-bordered {
+    border: 1px solid #984444;
+}
+/* QR code generator */
+#qrCode {
+    margin: 15px;
+}
+
+.blog-btn {
+    margin-top: 15%;
+    background-color: saddlebrown;
+    color: floralwhite;
+    border-color: saddlebrown;
+}
+
+    .blog-btn:hover {
+        color: floralwhite;
+        background-color: saddlebrown;
+        border-color: saddlebrown;
+    }
+
+a {
+    color: saddlebrown;
+    text-decoration: none;
+    font-style: oblique;
+}
+
+    a:hover {
+        font-weight: 400;
+        color: brown;
+        text-decoration: none;
+        font-style: oblique;
+    }
+
+
+footer {
+    display: block;
+    color: saddlebrown;
+}
+/* Hide/rearrange for smaller screens */
+@media screen and (max-width: 767px) {
+    /* Hide captions */
+    .carousel-caption {
+        display: none;
+    }
+}

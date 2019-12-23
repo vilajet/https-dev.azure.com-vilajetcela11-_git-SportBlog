@@ -1,0 +1,43 @@
+﻿@model SportBlog.ViewModel.PostsPerUser
+@{
+    ViewData["Title"] = "User";
+}
+<h2>
+    Posts Per User
+    <label asp-for="UserObj.Email" class="control-label" style="float:right">Welcome Back&nbsp;<i>@Model.UserObj.Email</i></label>
+</h2>
+<hr />
+<div class="row">
+    <div class="col-sm-3" style="padding-bottom:20px;">
+        <a asp-action="Create" asp-route-userId="@Model.UserObj.Id" class="btn btn-back" style="width:150px;">Add New Post</a>
+    </div>
+</div>
+<div class="row ">
+    <div class="col-lg-12 col-md-10 mx-auto">
+        <div class="post-preview">
+            @foreach (var item in Model.Posts.OrderByDescending(i=>i.CreationDate))
+            {
+                <a asp-action="Detail" asp-route-postId="@item.PostId">
+                    <h2 class="post-title">
+                        @item.Title
+                    </h2>
+                </a>
+                <h3 class="post-subtitle">
+                    @item.Body
+                </h3>
+
+                <img src="~/uploads/img/posts/@item.PostImage" width="140" />
+
+                <p class="post-meta">
+                    Created on
+                    <b>
+                        <b>@string.Format("{0:dd/MM/yyyy}", item.CreationDate)</b>
+                    </b>
+                </p>
+                <hr>
+            }
+        </div>
+    </div>
+</div>
+
+
