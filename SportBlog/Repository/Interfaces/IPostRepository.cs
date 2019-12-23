@@ -9,8 +9,9 @@ using System.Threading.Tasks;
 
 namespace SportBlog.Repositories.Interfaces
 {
-    public interface IPostRepository : IRepositoryBase<Post>
+    public interface IPostRepository : IRepositoryBase<Post> 
     {
+
      IEnumerable<ExpandoObject> FindFromNCategory();
     }
 }
