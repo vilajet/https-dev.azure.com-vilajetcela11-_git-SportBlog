@@ -57,7 +57,6 @@ namespace SportBlog.Controllers
                 Enabled = true,
                 PostId = postId,
                 UserId = userId,
-
             };
 
             if (ModelState.IsValid)
@@ -66,7 +65,6 @@ namespace SportBlog.Controllers
                 _repositoryWrapper.Save();
                 return RedirectToAction("Detail", "PostsPerUser", new { postId = thisPostId });
             }
-
             return View(commentModel);
         }
 

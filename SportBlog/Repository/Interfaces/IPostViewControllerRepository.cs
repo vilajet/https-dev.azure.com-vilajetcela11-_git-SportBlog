@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace SportBlog.Repositories.Interfaces
 {
-    interface IPostViewControllerRepository : IRepositoryBase<PostsViewModel>
+    public interface IPostViewControllerRepository : IRepositoryBase<PostsViewModel>
     {
 
     }

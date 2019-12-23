@@ -11,7 +11,6 @@ namespace SportBlog.Repositories.Interfaces
 {
     public interface IPostRepository : IRepositoryBase<Post> 
     {
-
      IEnumerable<ExpandoObject> FindFromNCategory();
     }
 }

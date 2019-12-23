@@ -73,16 +73,7 @@ namespace SportBlog.Controllers
                     return RedirectToAction("Index", "PostsPerUser");
                     //  _logger.LogInformation("User logged in.");
                     //return RedirectToLocal(returnUrl);
-                }
-                //if (result.RequiresTwoFactor)
-                //{
-                //    return RedirectToAction(nameof(LoginWith2fa), new { returnUrl, model.RememberMe });
-                //}
-                //if (result.IsLockedOut)
-                //{
-                //    _logger.LogWarning("User account locked out.");
-                //    return RedirectToAction(nameof(Lockout));
-                //}
+                }               
                 else
                 {
                     ModelState.AddModelError(string.Empty, "Invalid login attempt.");
@@ -94,23 +85,7 @@ namespace SportBlog.Controllers
             return View(model);
         }
 
-        //[HttpGet]
-        //[AllowAnonymous]
-        //public async Task<IActionResult> LoginWith2fa(bool rememberMe, string returnUrl = null)
-        //{
-        //    // Ensure the user has gone through the username & password screen first
-        //    var user = await _signInManager.GetTwoFactorAuthenticationUserAsync();
-
-        //    if (user == null)
-        //    {
-        //        throw new ApplicationException($"Unable to load two-factor authentication user.");
-        //    }
-
-        //    var model = new LoginWith2faViewModel { RememberMe = rememberMe };
-        //    ViewData["ReturnUrl"] = returnUrl;
-
-        //    return View(model);
-        //}
+        
         [HttpGet]
         [AllowAnonymous]
         public IActionResult Register(string returnUrl = null)
@@ -134,12 +109,9 @@ namespace SportBlog.Controllers
                     _logger.LogInformation("User created a new account with password.");
 
                     var code = await _userManager.GenerateEmailConfirmationTokenAsync(user);
-                    //var callbackUrl = Url.EmailConfirmationLink(user.Id, code, Request.Scheme);
                     //await _emailSender.SendEmailConfirmationAsync(model.Email, callbackUrl);
 
                     await _signInManager.SignInAsync(user, isPersistent: false);
-                    //_logger.LogInformation("User created a new account with password.");
-                    //return RedirectToLocal(returnUrl);
                     if (!string.IsNullOrWhiteSpace(returnUrl))
                     {
                         return Redirect(returnUrl);

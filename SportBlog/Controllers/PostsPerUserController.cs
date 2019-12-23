@@ -67,7 +67,6 @@ namespace SportBlog.Controllers
             return View(postObj);          
         }
 
-
         //Create POST
         [HttpPost]
         [ValidateAntiForgeryToken]

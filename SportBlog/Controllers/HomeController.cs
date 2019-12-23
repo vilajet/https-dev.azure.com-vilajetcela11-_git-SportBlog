@@ -16,9 +16,7 @@ namespace SportBlog.Controllers
         public HomeController(IRepositoryWrapper repositoryWrapper)
         {
             _repositoryWrapper = repositoryWrapper;
-        }
-
-       
+        }       
         public IActionResult Index()
         {
             var postItem = _repositoryWrapper.PostCategory.GetPostsForView();
@@ -39,14 +37,12 @@ namespace SportBlog.Controllers
 
             return View();
         }
-
         public IActionResult Contact()
         {
             ViewData["Message"] = "Your contact page.";
 
             return View();
         }
-
         public IActionResult Error()
         {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
